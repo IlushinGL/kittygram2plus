@@ -9,6 +9,9 @@ from .pagination import CatsPagination
 
 
 class CatViewSet(viewsets.ModelViewSet):
+    """
+    Записи о котиках.
+    """
     queryset = Cat.objects.all()
     serializer_class = CatSerializer
     permission_classes = (OwnerOrReadOnly,)
@@ -22,10 +25,16 @@ class CatViewSet(viewsets.ModelViewSet):
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Записи об владельцах котиков.
+    """
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class AchievementViewSet(viewsets.ModelViewSet):
+    """
+    Записи об активности котиков.
+    """
     queryset = Achievement.objects.all()
     serializer_class = AchievementSerializer
